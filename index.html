@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skillora - Course Library</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="left">
+         <img src="assets/logo.jpg" alt="Logo" class="logo" />
+        <h1>Skillora</h1>
+    </div>
+    <div class="right">
+         <div class="theme-toggle" onclick="toggleTheme()">🌞</div>
+    </div>
+</header>
+
+<div class="filter-section">
+    <input type="text" id="searchInput" placeholder="Search by course name or category">
+    <select id="categoryFilter">
+        <option value="all">All Categories</option>
+        <option value="web">Web Development</option>
+        <option value="app">App Development</option>
+        <option value="ai">AI</option>
+        <option value="fitness">Fitness</option>
+    </select>
+</div>
+
+<div class="course-container" id="courseContainer">
+    <!-- Example Course Cards -->
+    <div class="course-card" data-category="web">
+        <img src="https://i.ytimg.com/vi/ERCMXc8x7mc/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLB6FnxWoj1ZG0iFMx76gYG-qXVCsg" alt="">
+        <h3>HTML & CSS Mastery</h3>
+        <p>Learn complete frontend development with real projects.</p>
+        <a href="course1.html" class="btn">View Course</a>
+    </div>
+
+    <div class="course-card" data-category="app">
+        <img src="https://i.ytimg.com/vi/SycSR-NuDF0/maxresdefault.jpg" alt="">
+        <h3>Android App Development</h3>
+        <p>Build powerful Android apps from scratch.</p>
+        <a href="course-android.html" class="btn">View Course</a>
+    </div>
+
+    <div class="course-card" data-category="ai">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRG34gDI7iJNrMklVnVA7A7K1LLOaDZLId0D40uM4V58pVU0vxRupwWvxaOsuInT5Kx-H0&usqp=CAU" alt="">
+        <h3>AI with Python</h3>
+        <p>Master Artificial Intelligence using Python libraries.</p>
+        <a href="course-ai.html" class="btn">View Course</a>
+    </div>
+
+    <div class="course-card" data-category="ai">
+        <img src="assets/course-img/0NjzoDS.png" alt="">
+        <h3>AI with Python</h3>
+        <p>Master Artificial Intelligence using Python libraries.</p>
+        <a href="course-ai.html" class="btn">View Course</a>
+    </div>
+
+    <div class="course-card" data-category="ai">
+        <img src="https://mir-s3-cdn-cf.behance.net/projects/404/dcae51218965175.Y3JvcCwxMDA3LDc4OCwyNTQsMA.jpg" alt="">
+        <h3>AI with Python</h3>
+        <p>Master Artificial Intelligence using Python libraries.</p>
+        <a href="course-ai.html" class="btn">View Course</a>
+    </div>
+
+    <!-- More courses -->
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
+<style>
+/* style.css */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background:  #F5F8FA;
+    color:#1C1C1C;
+    transition: background 0.3s, color 0.3s;
+}
+
+:root {
+      
+      --day-bg: #F5F8FA;
+      --day-text: #1C1C1C;
+      --night-bg: #1b1f3b;
+      --night-text: #f4f4f4;
+      --course-card-bg-day: #ffffff;
+      --course-card-bg-night: #2d3250;
+      --primary-accent: #ff6f61;
+      --secondary-accent:#00C2A8;
+      --clients-bg-day:#fef8e7;
+      --clients-bg-night:#1b1f3b;
+      --social-card-bg-night:#2d3250;
+      --modal-content-bg-night:#1b1f3b;
+      --industry-popup-content-bg-night:#1b1f3b;
+      --music-player-bg-night:#2d3250;
+      --cert-card-bg-night:#2d3250;
+      --footer-bg-night:#2d3250;
+      --close-btn-bg-night:#fef8e7;
+      
+    }
+
+body.night-mode {
+      background: var(--night-bg);
+      color: var(--night-text);
+    }
+    body.night-mode .course-card {
+      background: var(--course-card-bg-night);
+    }
+    body.night-mode header {
+      background: rgba(30,30,50,0.9);
+    }
+    body.night-mode header {
+      color: #f4f4f4;
+    }
+    body.night-mode #clients{
+      background: var(--clients-bg-night)
+    }
+    body.night-mode .social-card{
+      background: var(--social-card-bg-night)
+    }
+    body.night-mode .modal-content{
+      background : var(--modal-content-bg-night)
+    }
+    body.night-mode .industry-popup-content{
+      background: var(--industry-popup-content-bg-night);
+    }
+    body.night-mode .music-player{
+      background: var(--music-player-bg-night)
+    }
+    body.night-mode footer{
+      background: var(--footer-bg-night)
+    }
+    body.night-mode footer{
+      color: var(--night-text)
+    }
+    body.night-mode .close-btn{
+      color: var(--close-button-bg-night)
+    }
+
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background:  #ffffff;
+    padding: 10px 20px;
+}
+.header .left {
+    display: flex;
+    align-items: center;
+}
+.logo {
+    width: 35px;
+    height: 35px;
+    background: #ffffff;
+    color:#1C1C1C;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    font-weight: bold;
+}
+#themeToggle {
+    background:  #ffffff;
+    color:#1C1C1C;
+    border: none;
+    padding: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+}
+.filter-section {
+    
+    display: flex;
+    gap: 10px;
+    padding: 15px 20px;
+    flex-wrap: wrap;
+}
+#searchInput, #categoryFilter {
+    flex: 1;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    max-width: 300px;
+}
+.course-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+.course-card {
+    background: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 15px;
+    text-align: center;
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 380px;
+    min-height: 380px;
+    max-height: 380px;
+}
+.course-card:hover {
+  transform: translateY(-5px);
+}
+.course-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+.course-card h3 {
+    margin: 10px 0 5px;
+}
+.course-card p {
+    font-size: 14px;
+    color: #5c5959;
+    flex-grow: 1;
+}
+.course-card .btn {
+    display: block;
+    width: calc(100% - 20px);
+    margin: 15px auto 0;
+   background:linear-gradient(135deg,#00C2A8,#0078FF);
+    color: #111;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+}
+.course-card .btn:hover {
+    background: #00aacc;
+}
+</style>
+<script>
+
+
+function toggleTheme() {
+      document.body.classList.toggle('night-mode');
+      document.querySelector('.theme-toggle').textContent = document.body.classList.contains('night-mode') ? '🌙' : '🌞';
+    }
+
+
+searchInput.addEventListener('input', filterCourses);
+categoryFilter.addEventListener('change', filterCourses);
+
+function filterCourses() {
+    const search = searchInput.value.toLowerCase();
+    const category = categoryFilter.value;
+    const courses = document.querySelectorAll('.course-card');
+
+    courses.forEach(course => {
+        const title = course.querySelector('h3').innerText.toLowerCase();
+        const courseCat = course.getAttribute('data-category');
+        const matchesSearch = title.includes(search) || courseCat.includes(search);
+        const matchesCategory = category === 'all' || courseCat === category;
+
+        course.style.display = (matchesSearch && matchesCategory) ? 'flex' : 'none';
+    });
+}
+</script>

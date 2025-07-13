@@ -1,280 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Skillora - Course Library</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EduSparkK - Home</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="data.js"></script>
+  <script defer src="script.js"></script>
 </head>
 <body>
-
-<header class="header">
-    <div class="left">
-         <img src="courses/assets/logo.jpg" alt="Logo" class="logo" />
-        <h1>Skillora</h1>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="logo">EduSpar<span>K</span></div>
+    <!-- <nav class="nav">
+      <ul>
+        <li class="active">Home</li>
+        <li>Features</li>
+        <li>Why Us</li>
+        <li class="badge">Books <span class="pop">POPULAR</span></li>
+        <li class="badge">Batches <span class="new">NEW</span></li>
+      </ul>
+    </nav> -->
+    <div class="search-container">
+      <input type="text" id="search" placeholder="Search Courses..." />
+      <span id="clearSearch" class="clear-icon">&#10006;</span>
     </div>
-    <div class="right">
-         <div class="theme-toggle" onclick="toggleTheme()">🌞</div>
-    </div>
-</header>
+    <!-- <button class="signup-btn">Sign Up</button> -->
+  </header>
 
-<div class="filter-section">
-    <input type="text" id="searchInput" placeholder="Search by course name or category">
-    <select id="categoryFilter">
-         <option value="all">🎯 All Categories</option>
-    <option value="coding">💻 Coding & Development</option>
-    <option value="design">🎨 Designing</option>
-    <option value="ai">🤖 AI & Machine Learning</option>
-    <option value="fitness">🏋️‍♂️ Fitness & Health</option>
-    <option value="photography">📷 Photography</option>
-    <option value="business">📈 Business & Marketing</option>
-    <option value="finance">💰 Finance & Investment</option>
-    <option value="language">🗣️ Language & Communication</option>
-    <option value="career">🚀 Career & Personality</option>
-    </select>
-</div>
+  <!-- SEARCH OVERLAY -->
+  <div class="search-overlay" id="searchOverlay">
+    <span class="close-icon" id="closeSearch">&#10006;</span>
+    <div class="search-results" id="searchResults"></div>
+  </div>
 
-<div class="course-container" id="courseContainer">
-    <!-- Example Course Cards -->
-    <div class="course-card" data-category="coding">
-        <img src="https://i.ytimg.com/vi/ERCMXc8x7mc/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLB6FnxWoj1ZG0iFMx76gYG-qXVCsg" alt="">
-        <h3>Apna College Python 10 Hours Course</h3>
-        <p>Master Python programming in just 10 hours with Apna College's industry-ready curriculum.</p>
-        <a href="courses/1.html" class="btn">💻 Start Coding Now</a>
-    </div>
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <h1>Where Knowledge Sparks & Learning Begins</h1>
+    <p>
+      A collaborative community for sharing and discovering free educational books and courses.
+      Ignite your learning journey with us today.
+    </p>
+    <button class="discover-btn">Discover More</button>
+  </section>
 
-    <div class="course-card" data-category="coding">
-        <img src="https://i.ytimg.com/vi/SycSR-NuDF0/maxresdefault.jpg" alt="">
-        <h3>Delta 6.0 Full Stack Web Development by Apna College</h3>
-        <p>Become a professional full-stack developer with Apna College's latest Delta 6.0 program.</p>
-        <a href="course-android.html" class="btn">💻 Start Coding Now</a>
-    </div>
-
-    <div class="course-card" data-category="fitness">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRG34gDI7iJNrMklVnVA7A7K1LLOaDZLId0D40uM4V58pVU0vxRupwWvxaOsuInT5Kx-H0&usqp=CAU" alt="">
-        <h3>Jeet Selal Fitness Transformation Program</h3>
-        <p>Get your dream physique naturally with India's most trusted fitness expert Jeet Selal.</p>
-        <a href="course-ai.html" class="btn">🏋️‍♂️ Begin Your Transformation</a>
-    </div>
-
-    <div class="course-card" data-category="photography">
-        <img src="courses/assets/course-img/0NjzoDS.png" alt="">
-        <h3>Photography Masterclass by Dabboo Ratnani</h3>
-        <p>Learn professional photography secrets from Bollywood's most celebrated photographer Dabboo Ratnani.</p>
-        <a href="course-ai.html" class="btn">📷 Master the Art of Photography</a>
-    </div>
-
-    <div class="course-card" data-category="design">
-        <img src="https://mir-s3-cdn-cf.behance.net/projects/404/dcae51218965175.Y3JvcCwxMDA3LDc4OCwyNTQsMA.jpg" alt="">
-        <h3>Vaibhu's Graphic Design Course</h3>
-        <p>Master modern graphic design with Vaibhu's beginner-friendly, project-based course.</p>
-        <a href="course-ai.html" class="btn">🎨 Unleash Your Creativity</a>
-    </div>
-
-    <!-- More courses -->
-</div>
-
-<script src="script.js"></script>
+  <!-- COURSE CATEGORIES -->
+  <main id="categories-container"></main>
 </body>
 </html>
-<style>
-/* style.css */
-
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background:  #F5F8FA;
-    color:#1C1C1C;
-    transition: background 0.3s, color 0.3s;
-}
-
-:root {
-      
-      --day-bg: #F5F8FA;
-      --day-text: #1C1C1C;
-      --night-bg: #1b1f3b;
-      --night-text: #f4f4f4;
-      --course-card-bg-day: #ffffff;
-      --course-card-bg-night: #2d3250;
-      --primary-accent: #ff6f61;
-      --secondary-accent:#00C2A8;
-      --clients-bg-day:#fef8e7;
-      --clients-bg-night:#1b1f3b;
-      --social-card-bg-night:#2d3250;
-      --modal-content-bg-night:#1b1f3b;
-      --industry-popup-content-bg-night:#1b1f3b;
-      --music-player-bg-night:#2d3250;
-      --cert-card-bg-night:#2d3250;
-      --footer-bg-night:#2d3250;
-      --close-btn-bg-night:#fef8e7;
-      
-    }
-
-body.night-mode {
-      background: var(--night-bg);
-      color: var(--night-text);
-    }
-    body.night-mode .course-card {
-      background: var(--course-card-bg-night);
-    }
-    body.night-mode header {
-      background: rgba(30,30,50,0.9);
-    }
-    body.night-mode header {
-      color: #f4f4f4;
-    }
-    body.night-mode #clients{
-      background: var(--clients-bg-night)
-    }
-    body.night-mode .social-card{
-      background: var(--social-card-bg-night)
-    }
-    body.night-mode .modal-content{
-      background : var(--modal-content-bg-night)
-    }
-    body.night-mode .industry-popup-content{
-      background: var(--industry-popup-content-bg-night);
-    }
-    body.night-mode .music-player{
-      background: var(--music-player-bg-night)
-    }
-    body.night-mode footer{
-      background: var(--footer-bg-night)
-    }
-    body.night-mode footer{
-      color: var(--night-text)
-    }
-    body.night-mode .close-btn{
-      color: var(--close-button-bg-night)
-    }
-
-
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background:  #ffffff;
-    padding: 10px 20px;
-}
-.header .left {
-    display: flex;
-    align-items: center;
-}
-.logo {
-    width: 35px;
-    height: 35px;
-    background: #ffffff;
-    color:#1C1C1C;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 10px;
-    font-weight: bold;
-}
-#themeToggle {
-    background:  #ffffff;
-    color:#1C1C1C;
-    border: none;
-    padding: 8px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 18px;
-}
-.filter-section {
-    
-    display: flex;
-    gap: 10px;
-    padding: 15px 20px;
-    flex-wrap: wrap;
-}
-#searchInput, #categoryFilter {
-    flex: 1;
-    padding: 10px;
-    border-radius: 5px;
-    border: none;
-    max-width: 300px;
-}
-.course-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-    padding: 20px;
-}
-.course-card {
-    border: 1px solid #ddd;
-    background: #ffffff;
-    border-radius: 8px;
-    overflow: hidden;
-    padding: 15px;
-    text-align: center;
-    transition: 0.3s;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 200px;
-    min-height: 380px;
-    max-height: 380px;
-     box-shadow: 0 20px 60px rgba(0,0,0,0.1);
-   transition: transform 0.3s ease;
-}
-.course-card:hover {
-  transform: translateY(-5px);
-}
-.course-card img {
-    border: 1px solid #ddd;
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 5px;
-}
-.course-card h3 {
-    margin: 10px 0 5px;
-}
-.course-card p {
-    font-size: 14px;
-    color: #5c5959;
-    flex-grow: 1;
-}
-.course-card .btn {
-    display: block;
-    width: calc(100% - 20px);
-    margin: 15px auto 0;
-   background:linear-gradient(135deg,#00C2A8,#0078FF);
-    color: #111;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    text-decoration: none;
-}
-.course-card .btn:hover {
-    background: #00aacc;
-}
-</style>
-<script>
-
-
-function toggleTheme() {
-      document.body.classList.toggle('night-mode');
-      document.querySelector('.theme-toggle').textContent = document.body.classList.contains('night-mode') ? '🌙' : '🌞';
-    }
-
-
-searchInput.addEventListener('input', filterCourses);
-categoryFilter.addEventListener('change', filterCourses);
-
-function filterCourses() {
-    const search = searchInput.value.toLowerCase();
-    const category = categoryFilter.value;
-    const courses = document.querySelectorAll('.course-card');
-
-    courses.forEach(course => {
-        const title = course.querySelector('h3').innerText.toLowerCase();
-        const courseCat = course.getAttribute('data-category');
-        const matchesSearch = title.includes(search) || courseCat.includes(search);
-        const matchesCategory = category === 'all' || courseCat === category;
-
-        course.style.display = (matchesSearch && matchesCategory) ? 'flex' : 'none';
-    });
-}
-</script>

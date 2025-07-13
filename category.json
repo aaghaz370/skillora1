@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Data Science",
+    "courses": [
+      {
+        "id": 1,
+        "title": "Learn Python for Data Science",
+        "price": 999,
+        "image": "images/python.jpg",
+        "description": "Master Python for analysis and machine learning."
+      }
+    ]
+  },
+  {
+    "name": "Web Development",
+    "courses": [
+      {
+        "id": 2,
+        "title": "Full Stack Bootcamp",
+        "price": 1299,
+        "image": "images/fullstack.jpg",
+        "description": "HTML, CSS, JavaScript, Node.js & React."
+      }
+    ]
+  }
+]
